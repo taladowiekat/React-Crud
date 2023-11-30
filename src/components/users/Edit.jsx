@@ -43,7 +43,7 @@ const sendData=async(e)=>{
   }else{
     try{
       const{data}=await axios.post(`https://crud-users-gold.vercel.app/users/${id}`,user);//=>user=>الاوجيكت يلي رح يشتغل عليه
-      // console.log(data);
+
       if(data.message=="success"){
         toast.success("added user successfully");
         navigate('/users/index')

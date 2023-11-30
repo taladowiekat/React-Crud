@@ -6,35 +6,6 @@ import Input from '../Shared/Input.jsx';
 import { vaidData } from '../validation/valid.js';
 function Create() {
   const navigate=useNavigate();
-  //? for testing
-  // const changeAge=(e)=>{
-  //   e.preventDefult;
-  //   //console.log(e.target.value); //بطبع الفاليو بالكونسول بس ما بعدل عليها
-  //   setAge(e.target.value);
-  //   // setAge(a);
-  // }
-    // let [user,setUser]=useState({
-  //   name:'',
-  //   email:'',
-  //   password:''
-  // })
-
-  // const changeData = (e)=>{
-  //   console.log(e.target.value);
-  //   //لما اعمل هيك واعطي هاد الفنكشن لكل الداتا الفنكشن  بصير يعدل علكل الانبوتس
-  // }
-
-
-
-  // const changeData = (e)=>{
-  // // e.target.name=e.target.value;
-  // setUser({
-  //   ...user,//هيك عشان اخليه يجبلي  كل القيم القديمة بدون ما يعمل ريفريش وهاي اسمها سبليت
-  //   [e.target.name]:e.target.value
-  // })
-  // console.log(user)
-  // // ليش عملتها هيك ؟ لانه الجزء الاول هو متغير مش ثابت والكي ما بصير يكون متغير عشان هيك بقبلها بطريقة انه في اقواس
-  // }
 
   let [errors,setErrors] =useState({
     name:'',
@@ -49,9 +20,8 @@ function Create() {
   })
   let[loader,setloader] = useState(false)
   let [errorBack , setErrorBack] = useState('');
-  //نفس الفنكشن يلي قبله بطريقة احسن
 const changeData=(e)=>{
-  const{name,value}=e.target;//? =>destructing
+  const{name,value}=e.target;
   setUser({
     ...user,
     [name]:value
@@ -65,8 +35,7 @@ const sendData=async(e)=>{
 
   }else{
     try{
-      const{data}=await axios.post("https://crud-users-gold.vercel.app/users/",user);//=>user=>الاوجيكت يلي رح يشتغل عليه
-      // console.log(data);
+      const{data}=await axios.post("https://crud-users-gold.vercel.app/users/",user);
       if(data.message=="success"){
         toast.success("added user successfully");
         navigate('/users/index')
@@ -173,15 +142,7 @@ if(loader){
         </div>
       </div>
     </div>
-     {/* <div className="col py-3">
-    //? for testing 
-       <form action="">
-        <label htmlFor='age'>user age</label>
-        <input type="text" id='age' value={age} onChange={()=>changeAge(event)}/>
-        <p>age is {age}</p>
-        <button>click</button>
-      </form> 
-    </div> */}
+
     {errorBack&&<p className="text text-danger">{errorBack}</p>}
 <form onSubmit={sendData}>
 <Input e={errors} type={'text'} id={'username'} title={'user name'} name={'name'} handelData={changeData}/>

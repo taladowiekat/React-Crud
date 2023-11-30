@@ -31,11 +31,7 @@ function Index() {
         getUsers()
     }
   }  
-  // useEffect(()=>{
-  //   setloader(true)
-  //     getUsers();
-  // },[users]);
- //شلتها لانه رح تعمل لووب
+
 
   if(loader){
     return(
