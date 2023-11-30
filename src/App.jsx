@@ -7,7 +7,7 @@ import Edit from './components/users/Edit.jsx'
 function App() {
   return (
     <Routes>
-      <Route path='/' element={<Index/>}/>
+      <Route path='/' element={<Create/>}/>
       <Route path='users/index' element={<Index/>}/>
       <Route path='users/create' element={<Create/>}/>
       <Route path='users/:id' element={<Details/>}/>
